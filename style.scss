@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$yellow:#ffff3d;
+$pink:#ff3d77;
+$blue:#32b6ef;
+$purple:#6300ba;
+
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin widget {
+    width: 23%;
+    margin: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border: gray solid 1px;
+}
+
+@mixin color($bg-color) {
+    width: 100%;
+    height: 100px;
+    background: $bg-color;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#top {
+    @include flex;
+}
+
+.yellow{
+    @include widget;
+    div{
+        @include color($yellow);
+    }
+}
+
+.pink {
+    @include widget;
+    div{
+        @include color($pink);
+    }
+}
+
+.blue {
+    @include widget;
+    div{
+        @include color($blue);
+    }
+}
+
+.purple {
+    @include widget;
+    div{
+        @include color($purple);
+    }
+}
+
+#bottom {
+    @include flex;
+}
+
+
+
+.shade {
+    @include widget;
+}
+
+@mixin color($color){
+    width: 100%;
+    height: 100px;
+    display: flex;
+    .base{
+        margin-bottom: 10px;
+        width: calc(100% / 3);
+        background: $color;
+    }
+    .darken{
+        margin-bottom: 10px;
+        width: calc(100% / 3);
+        background: darken($color, 20%);
+    }
+    .lighten{
+        margin-bottom: 10px;
+        width: calc(100% / 3);
+        background: lighten($color, 20%);
+    }
+}
+
+    .b-yellow {
+        @include color($yellow);
+    }
+
+    .b-pink {
+        @include color($pink);
+    }
+
+    .b-blue {
+        @include color($blue);
+    }
+
+    .b-purple {
+        @include color($purple);
+    }
+    
+
+
+
